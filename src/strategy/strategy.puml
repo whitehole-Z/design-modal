@@ -1,0 +1,30 @@
+@startuml
+together {
+    class Client
+    interface Compartor<T>{
+        void compare(T t1,T t2)
+    }
+}
+together {
+    class dogHeightCompartor<Dog>{
+        void compare(Dog t1,Dog t2)
+    }
+    class dogWeightCompartor<Dog>{
+        void compare(Dog t1,Dog t2)
+    }
+    class Dog
+}
+class dogHeightCompartor
+class dogWeightCompartor
+class sort{
+    void sortitem(T[] items,Compartor)
+}
+
+Compartor <|-- dogHeightCompartor
+Compartor <|-- dogWeightCompartor
+sort o-- Compartor
+Client - Compartor
+
+dogHeightCompartor o-- Dog
+dogWeightCompartor o-- Dog
+@enduml
